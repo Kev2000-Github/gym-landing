@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const classes = [
+  {
+    title: "Base HIIT",
+    duration: "45 min",
+  },
+  {
+    title: "Base Strength",
+    duration: "45 min",
+  },
+  {
+    title: "Base Endurance",
+    duration: "45 min",
+  },
+];
+---
+
+<Layout title="Creative GYM">
+  <main class="overflow-x-hidden h-screen">
+    <section class="h-[800px] w-full relative text-white parallax">
+      <div class="w-3/4 pl-32 pt-32">
+        <h2 class="text-2xl">Base Fit- Functional Fitness Studio</h2>
+        <h1 class="text-8xl font-bold">Where Fitness Becomes Your Lifestyle</h1>
+        <button
+          class="mt-8 px-12 py-3 bg-purple-700 text-lg hover:bg-white hover:text-black transition duration-200"
+          >Book Now</button
+        >
+      </div>
+    </section>
+    <section
+      class="bg-blue-500 grid grid-cols-2 gap-10 py-8 h-fit w-full justify-start items-start relative text-black z-10"
+    >
+      <div class="bg-black h-screen w-auto"></div>
+      <div
+        class="bg-black text-white h-screen w-auto flex justify-center items-center"
+      >
+        <div class="w-[60%]">
+          <h1 class="text-5xl font-bold">About Base Fit Studio</h1>
+          <p class="text-lg text-justify mt-8">
+            I'm a paragraph. Click here to add your own text and edit me. It’s
+            easy. Just click “Edit Text” or double click me to add your own
+            content and make changes to the font. I’m a great place for you to
+            tell a story and let your users know a little more about you.
+          </p>
+          <button
+            class="mt-8 px-12 py-3 bg-purple-700 text-lg hover:bg-white hover:text-black transition duration-200"
+            >Read More</button
+          >
+        </div>
+      </div>
+    </section>
+    <section class="bg-blue-500 py-8 w-full relative text-black z-10">
+      <h1 class="text-center text-5xl font-bold">Our classes</h1>
+      <ul class="px-4 pt-8">
+        {
+          classes.map((course) => (
+            <li class="w-full px-6 py-8 grid grid-cols-4 items-center">
+              <h1 class="text-4xl col-span-2">{course.title}</h1>
+              <p class="text-lg">{course.duration}</p>
+              <button class="px-6 py-3 bg-purple-700 text-lg hover:bg-white hover:text-black transition duration-200">
+                Book Now
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    perspective: 2px;
+  }
+
+  section {
+    transform-style: preserve-3d;
+  }
+
+  .parallax::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateZ(-1px) scale(1.5);
+    background-size: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+      url("/0_0.webp");
+    background-size: cover;
+  }
+</style>
